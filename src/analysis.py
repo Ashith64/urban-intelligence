@@ -112,5 +112,23 @@ def get_city_comparison_table(df: pd.DataFrame, cities: list[str]) -> pd.DataFra
         "Congestion_Level_2025_pct",
     ]
     cols = [c for c in display_cols if c in subset.columns]
-    table = subset[cols].set_index("City").T
+    formatted = subset[cols].copy()
+    for col in cols:
+        if col in [
+            "Affordability_Air_Score_0_100",
+            "Local_Purchasing_Power_Index",
+            "Cost_of_Living_Index",
+            "Rent_Index",
+            "PM2_5_2024_ugm3",
+            "PM2_5_x_WHO_Guideline",
+            "Relative_Net_Income_Index",
+        ]:
+            formatted[col] = formatted[col].apply(lambda v: f"{v:.1f}" if pd.notna(v) else "N/A")
+        elif col == "Congestion_Level_2025_pct":
+            formatted[col] = formatted[col].apply(lambda v: f"{v:.1f}%" if pd.notna(v) else "N/A")
+        else:
+            formatted[col] = formatted[col].astype(str)
+
+    table = formatted.set_index("City").T
+    table.index.name = "Indicator"
     return table
