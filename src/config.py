@@ -73,12 +73,13 @@ OKABE_ITO_PALETTE = {
 
 REGION_COLORS = {
     "Europe": "#0072B2",
-    "Asia": "#E69F00",
     "North America": "#56B4E9",
-    "Latin America": "#009E73",
-    "Oceania": "#CC79A7",
-    "Africa": "#D55E00",
+    "Asia": "#E69F00",
+    "South Asia": "#D55E00",
+    "Africa": "#CC79A7",
     "Middle East": "#F0E442",
+    "South America": "#009E73",
+    "Oceania": "#999999",
 }
 
 PM25_BAND_COLORS = {
