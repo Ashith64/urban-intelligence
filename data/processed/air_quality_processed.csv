@@ -1,0 +1,125 @@
+Rank,City_As_Published,PM2_5_2024_ugm3,Source_Table,City_Raw,City,State,Country,In_Project_Scope,Outlier_Flags_IQR,PM2_5_2024_ugm3_norm
+1.0,"New Delhi, India",91.8,IQAir 2024 World capital city ranking,"New Delhi, India",Delhi,,India,True,True,1.0
+2.0,"N'Djamena, Chad",91.6,IQAir 2024 World capital city ranking,"N'Djamena, Chad",N'Djamena,,Chad,False,True,0.9977653631284916
+3.0,"Dakha, Bangladesh",78.0,IQAir 2024 World capital city ranking,"Dakha, Bangladesh",Dhaka,,Bangladesh,True,True,0.8458100558659218
+4.0,"Kinshasa, D.R. Congo",58.2,IQAir 2024 World capital city ranking,"Kinshasa, D.R. Congo",Kinshasa,,D.R. Congo,False,True,0.6245810055865922
+5.0,"Islamabad, Pakistan",52.4,IQAir 2024 World capital city ranking,"Islamabad, Pakistan",Islamabad,,Pakistan,True,True,0.5597765363128492
+6.0,"Dushanbe, Tajikistan",46.3,IQAir 2024 World capital city ranking,"Dushanbe, Tajikistan",Dushanbe,,Tajikistan,False,True,0.49162011173184356
+7.0,"Hanoi, Vietnam",45.4,IQAir 2024 World capital city ranking,"Hanoi, Vietnam",Hanoi,,Vietnam,True,True,0.48156424581005586
+8.0,"Kathmandu, Nepal",45.1,IQAir 2024 World capital city ranking,"Kathmandu, Nepal",Kathmandu,,Nepal,True,True,0.47821229050279335
+9.0,"Abuja, Nigeria",42.2,IQAir 2024 World capital city ranking,"Abuja, Nigeria",Abuja,,Nigeria,False,True,0.4458100558659219
+10.0,"Jakarta, Indonesia",41.7,IQAir 2024 World capital city ranking,"Jakarta, Indonesia",Jakarta,,Indonesia,True,False,0.44022346368715093
+11.0,"Kampala, Uganda",41.0,IQAir 2024 World capital city ranking,"Kampala, Uganda",Kampala,,Uganda,True,False,0.43240223463687155
+12.0,"Kigali, Rwanda",40.8,IQAir 2024 World capital city ranking,"Kigali, Rwanda",Kigali,,Rwanda,False,False,0.4301675977653631
+13.0,"Baghdad, Iraq",40.5,IQAir 2024 World capital city ranking,"Baghdad, Iraq",Baghdad,,Iraq,True,False,0.4268156424581006
+14.0,"Cairo, Egypt",39.9,IQAir 2024 World capital city ranking,"Cairo, Egypt",Cairo,,Egypt,True,False,0.4201117318435754
+15.0,"Yaounde, Cameroon",36.3,IQAir 2024 World capital city ranking,"Yaounde, Cameroon",Yaounde,,Cameroon,False,False,0.37988826815642457
+16.0,"Accra, Ghana",36.3,IQAir 2024 World capital city ranking,"Accra, Ghana",Accra,,Ghana,True,False,0.37988826815642457
+17.0,"Abu Dhabi, United Arab Emirates",32.0,IQAir 2024 World capital city ranking,"Abu Dhabi, United Arab Emirates",Abu Dhabi,,United Arab Emirates,True,False,0.3318435754189944
+18.0,"Manama, Bahrain",31.8,IQAir 2024 World capital city ranking,"Manama, Bahrain",Manama,,Bahrain,False,False,0.329608938547486
+19.0,"Tashkent, Uzbekistan",31.4,IQAir 2024 World capital city ranking,"Tashkent, Uzbekistan",Tashkent,,Uzbekistan,False,False,0.32513966480446926
+20.0,"Doha, Qatar",31.3,IQAir 2024 World capital city ranking,"Doha, Qatar",Doha,,Qatar,True,False,0.3240223463687151
+21.0,"Beijing, China",30.9,IQAir 2024 World capital city ranking,"Beijing, China",Beijing,,China,True,False,0.3195530726256983
+22.0,"Sarajevo, Bosnia Herzegovina",30.8,IQAir 2024 World capital city ranking,"Sarajevo, Bosnia Herzegovina",Sarajevo,,Bosnia and Herzegovina,False,False,0.31843575418994413
+23.0,"Kuwait City, Kuwait",30.2,IQAir 2024 World capital city ranking,"Kuwait City, Kuwait",Kuwait City,,Kuwait,False,False,0.311731843575419
+24.0,"Vientiane, Laos",27.5,IQAir 2024 World capital city ranking,"Vientiane, Laos",Vientiane,,Laos,False,False,0.28156424581005585
+25.0,"Ashgabat, Turkmenistan",26.5,IQAir 2024 World capital city ranking,"Ashgabat, Turkmenistan",Ashgabat,,Turkmenistan,False,False,0.27039106145251396
+26.0,"Lome, Togo",26.0,IQAir 2024 World capital city ranking,"Lome, Togo",Lome,,Togo,False,False,0.264804469273743
+27.0,"Ulaanbaatar, Mongolia",25.7,IQAir 2024 World capital city ranking,"Ulaanbaatar, Mongolia",Ulaanbaatar,,Mongolia,False,False,0.26145251396648045
+28.0,"Harare, Zimbabwe",24.8,IQAir 2024 World capital city ranking,"Harare, Zimbabwe",Harare,,Zimbabwe,False,False,0.25139664804469275
+29.0,"Yerevan, Armenia",24.4,IQAir 2024 World capital city ranking,"Yerevan, Armenia",Yerevan,,Armenia,False,False,0.24692737430167597
+30.0,"Riyadh, Saudi Arabia",23.7,IQAir 2024 World capital city ranking,"Riyadh, Saudi Arabia",Riyadh,,Saudi Arabia,True,False,0.23910614525139665
+31.0,"Dakar, Senegal",22.3,IQAir 2024 World capital city ranking,"Dakar, Senegal",Dakar,,Senegal,False,False,0.22346368715083798
+32.0,"Addis Ababa, Ethiopia",22.2,IQAir 2024 World capital city ranking,"Addis Ababa, Ethiopia",Addis Ababa,,Ethiopia,True,False,0.2223463687150838
+33.0,"Phnom Penh, Cambodia",21.9,IQAir 2024 World capital city ranking,"Phnom Penh, Cambodia",Phnom Penh,,Cambodia,True,False,0.2189944134078212
+34.0,"Skopje, North Macedonia",21.6,IQAir 2024 World capital city ranking,"Skopje, North Macedonia",Skopje,,North Macedonia,False,False,0.21564245810055865
+35.0,"Lusaka, Zambia",21.4,IQAir 2024 World capital city ranking,"Lusaka, Zambia",Lusaka,,Zambia,False,False,0.21340782122905025
+36.0,"Bishkek, Kyrgyzstan",21.2,IQAir 2024 World capital city ranking,"Bishkek, Kyrgyzstan",Bishkek,,Kyrgyzstan,False,False,0.21117318435754187
+37.0,"Antananarivo, Madagascar",20.5,IQAir 2024 World capital city ranking,"Antananarivo, Madagascar",Antananarivo,,Madagascar,False,False,0.20335195530726255
+38.0,"Tripoli, Libya",19.9,IQAir 2024 World capital city ranking,"Tripoli, Libya",Tripoli,,Libya,False,False,0.19664804469273742
+39.0,"Pretoria, South Africa",19.6,IQAir 2024 World capital city ranking,"Pretoria, South Africa",Pretoria,,South Africa,False,False,0.19329608938547488
+40.0,"Mexico City, Mexico",19.5,IQAir 2024 World capital city ranking,"Mexico City, Mexico",Mexico City,,Mexico,True,False,0.19217877094972066
+41.0,"Guatemala City, Guatemala",18.9,IQAir 2024 World capital city ranking,"Guatemala City, Guatemala",Guatemala City,,Guatemala,False,False,0.1854748603351955
+42.0,"Bangkok, Thailand",18.9,IQAir 2024 World capital city ranking,"Bangkok, Thailand",Bangkok,,Thailand,True,False,0.1854748603351955
+43.0,"Baku, Azerbaijan",18.3,IQAir 2024 World capital city ranking,"Baku, Azerbaijan",Baku,,Azerbaijan,False,False,0.1787709497206704
+44.0,"Lima, Peru",18.2,IQAir 2024 World capital city ranking,"Lima, Peru",Lima,,Peru,True,False,0.17765363128491618
+45.0,"Belgrade, Serbia",17.9,IQAir 2024 World capital city ranking,"Belgrade, Serbia",Belgrade,,Serbia,True,False,0.17430167597765361
+46.0,"Macao, Macao SAR",17.7,IQAir 2024 World capital city ranking,"Macao, Macao SAR",Macao,,Macao SAR,False,False,0.17206703910614524
+47.0,"Kuala Lumpur, Malaysia",17.7,IQAir 2024 World capital city ranking,"Kuala Lumpur, Malaysia",Kuala Lumpur,,Malaysia,True,False,0.17206703910614524
+48.0,"Georgetown, Guyana",17.5,IQAir 2024 World capital city ranking,"Georgetown, Guyana",Georgetown,,Guyana,False,False,0.16983240223463686
+49.0,"Seoul, South Korea",17.5,IQAir 2024 World capital city ranking,"Seoul, South Korea",Seoul,,South Korea,True,False,0.16983240223463686
+50.0,"Manila, Philippines",17.4,IQAir 2024 World capital city ranking,"Manila, Philippines",Manila,,Philippines,True,False,0.16871508379888267
+51.0,"Santiago, Chile",17.3,IQAir 2024 World capital city ranking,"Santiago, Chile",Santiago,,Chile,True,False,0.16759776536312848
+52.0,"San Salvador, El Salvador",17.3,IQAir 2024 World capital city ranking,"San Salvador, El Salvador",San Salvador,,El Salvador,False,False,0.16759776536312848
+53.0,"Colombo, Sri Lanka",16.9,IQAir 2024 World capital city ranking,"Colombo, Sri Lanka",Colombo,,Sri Lanka,True,False,0.1631284916201117
+54.0,"Djibouti, Djibouti",16.8,IQAir 2024 World capital city ranking,"Djibouti, Djibouti",Djibouti,,Djibouti,False,False,0.16201117318435754
+55.0,"Podgorica, Montenegro",16.8,IQAir 2024 World capital city ranking,"Podgorica, Montenegro",Podgorica,,Montenegro,False,False,0.16201117318435754
+56.0,"Hong Kong, Hong Kong SAR",16.4,IQAir 2024 World capital city ranking,"Hong Kong, Hong Kong SAR",Hong Kong,,Hong Kong,True,False,0.15754189944134075
+57.0,"Asuncion, Paraguay",15.9,IQAir 2024 World capital city ranking,"Asuncion, Paraguay",Asuncion,,Paraguay,False,False,0.15195530726256984
+58.0,"Bucharest, Romania",15.7,IQAir 2024 World capital city ranking,"Bucharest, Romania",Bucharest,,Romania,True,False,0.14972067039106143
+59.0,"Ljubljana, Slovenia",15.6,IQAir 2024 World capital city ranking,"Ljubljana, Slovenia",Ljubljana,,Slovenia,True,False,0.14860335195530727
+60.0,"Algiers, Algeria",15.4,IQAir 2024 World capital city ranking,"Algiers, Algeria",Algiers,,Algeria,True,False,0.1463687150837989
+61.0,"Astana, Kazakhstan",15.4,IQAir 2024 World capital city ranking,"Astana, Kazakhstan",Astana,,Kazakhstan,False,False,0.1463687150837989
+62.0,"Nicosia, Cyprus",15.2,IQAir 2024 World capital city ranking,"Nicosia, Cyprus",Nicosia,,Cyprus,False,False,0.1441340782122905
+63.0,"Libreville, Gabon",15.2,IQAir 2024 World capital city ranking,"Libreville, Gabon",Libreville,,Gabon,False,False,0.1441340782122905
+64.0,"Tegucigalpa, Honduras",15.2,IQAir 2024 World capital city ranking,"Tegucigalpa, Honduras",Tegucigalpa,,Honduras,False,False,0.1441340782122905
+65.0,"Tbilisi, Georgia",15.1,IQAir 2024 World capital city ranking,"Tbilisi, Georgia",Tbilisi,,Georgia,False,False,0.14301675977653633
+66.0,"Jerusalem, Israel",15.0,IQAir 2024 World capital city ranking,"Jerusalem, Israel",Jerusalem,,Israel,False,False,0.1418994413407821
+67.0,"Chișinău, Moldova",14.7,IQAir 2024 World capital city ranking,"Chișinău, Moldova",Chisinau,,Moldova,False,False,0.13854748603351955
+68.0,"Tirana, Albania",14.5,IQAir 2024 World capital city ranking,"Tirana, Albania",Tirana,,Albania,False,False,0.13631284916201117
+69.0,"Nairobi, Kenya",14.4,IQAir 2024 World capital city ranking,"Nairobi, Kenya",Nairobi,,Kenya,True,False,0.135195530726257
+70.0,"Pristina, Kosovo",14.2,IQAir 2024 World capital city ranking,"Pristina, Kosovo",Pristina,,Kosovo,False,False,0.13296089385474857
+71.0,"Zagreb, Croatia",14.1,IQAir 2024 World capital city ranking,"Zagreb, Croatia",Zagreb,,Croatia,True,False,0.1318435754189944
+72.0,"Warsaw, Poland",13.4,IQAir 2024 World capital city ranking,"Warsaw, Poland",Warsaw,,Poland,True,False,0.1240223463687151
+73.0,"Bogota, Colombia",12.7,IQAir 2024 World capital city ranking,"Bogota, Colombia",Bogota,,Colombia,True,False,0.11620111731843574
+74.0,"Paramaribo, Suriname",12.5,IQAir 2024 World capital city ranking,"Paramaribo, Suriname",Paramaribo,,Suriname,False,False,0.11396648044692737
+75.0,"Male, Maldives",12.2,IQAir 2024 World capital city ranking,"Male, Maldives",Male,,Maldives,False,False,0.11061452513966478
+76.0,"Budapest, Hungary",12.0,IQAir 2024 World capital city ranking,"Budapest, Hungary",Budapest,,Hungary,True,False,0.10837988826815642
+77.0,"Bratislava, Slovakia",12.0,IQAir 2024 World capital city ranking,"Bratislava, Slovakia",Bratislava,,Slovakia,True,False,0.10837988826815642
+78.0,"Montevideo, Uruguay",11.5,IQAir 2024 World capital city ranking,"Montevideo, Uruguay",Montevideo,,Uruguay,True,False,0.10279329608938546
+79.0,"Prague, Czech Republic",11.4,IQAir 2024 World capital city ranking,"Prague, Czech Republic",Prague,,Czech Republic,True,False,0.1016759776536313
+80.0,"Singapore, Singapore",11.4,IQAir 2024 World capital city ranking,"Singapore, Singapore",Singapore,,Singapore,True,False,0.1016759776536313
+81.0,"Sofia, Bulgaria",11.2,IQAir 2024 World capital city ranking,"Sofia, Bulgaria",Sofia,,Bulgaria,True,False,0.09944134078212288
+82.0,"Sucre, Bolivia",11.1,IQAir 2024 World capital city ranking,"Sucre, Bolivia",Sucre,,Bolivia,False,False,0.09832402234636872
+83.0,"Athens, Greece",11.0,IQAir 2024 World capital city ranking,"Athens, Greece",Athens,,Greece,True,False,0.09720670391061452
+84.0,"Berlin, Germany",10.8,IQAir 2024 World capital city ranking,"Berlin, Germany",Berlin,,Germany,True,False,0.09497206703910614
+85.0,"Rome, Italy",10.1,IQAir 2024 World capital city ranking,"Rome, Italy",Rome,,Italy,True,False,0.08715083798882681
+86.0,"Moscow, Russia",10.0,IQAir 2024 World capital city ranking,"Moscow, Russia",Moscow,,Russia,True,False,0.08603351955307263
+87.0,"Vienna, Austria",9.7,IQAir 2024 World capital city ranking,"Vienna, Austria",Vienna,,Austria,True,False,0.08268156424581005
+88.0,"Quito, Ecuador",9.7,IQAir 2024 World capital city ranking,"Quito, Ecuador",Quito,,Ecuador,True,False,0.08268156424581005
+89.0,"Kyiv, Ukraine",9.4,IQAir 2024 World capital city ranking,"Kyiv, Ukraine",Kyiv,,Ukraine,True,False,0.07932960893854749
+90.0,"Amsterdam, Netherlands",9.3,IQAir 2024 World capital city ranking,"Amsterdam, Netherlands",Amsterdam,,Netherlands,True,False,0.07821229050279331
+91.0,"Riga, Latvia",9.2,IQAir 2024 World capital city ranking,"Riga, Latvia",Riga,,Latvia,True,False,0.0770949720670391
+92.0,"Vilnius, Lithuania",9.1,IQAir 2024 World capital city ranking,"Vilnius, Lithuania",Vilnius,,Lithuania,True,False,0.07597765363128492
+93.0,"Tokyo, Japan",9.0,IQAir 2024 World capital city ranking,"Tokyo, Japan",Tokyo,,Japan,True,False,0.07486033519553073
+94.0,"Ankara, Turkey",9.0,IQAir 2024 World capital city ranking,"Ankara, Turkey",Ankara,,Turkey,False,False,0.07486033519553073
+95.0,"Buenos Aires, Argentina",8.9,IQAir 2024 World capital city ranking,"Buenos Aires, Argentina",Buenos Aires,,Argentina,True,False,0.07374301675977654
+96.0,"Brussels, Belgium",8.9,IQAir 2024 World capital city ranking,"Brussels, Belgium",Brussels,,Belgium,True,False,0.07374301675977654
+97.0,"George Town, Cayman Islands",8.5,IQAir 2024 World capital city ranking,"George Town, Cayman Islands",George Town,,Cayman Islands,False,False,0.06927374301675977
+98.0,"Paris, France",8.3,IQAir 2024 World capital city ranking,"Paris, France",Paris,,France,True,False,0.06703910614525141
+99.0,"Madrid, Spain",8.1,IQAir 2024 World capital city ranking,"Madrid, Spain",Madrid,,Spain,True,False,0.06480446927374302
+100.0,"London, United Kingdom",7.8,IQAir 2024 World capital city ranking,"London, United Kingdom",London,,United Kingdom,True,False,0.061452513966480445
+101.0,"Luxembourg, Luxembourg",7.7,IQAir 2024 World capital city ranking,"Luxembourg, Luxembourg",Luxembourg,,Luxembourg,True,False,0.06033519553072626
+102.0,"Washington D.C., USA",7.6,IQAir 2024 World capital city ranking,"Washington D.C., USA",Washington,,United States,True,False,0.05921787709497207
+103.0,"Lisbon, Portugal",7.4,IQAir 2024 World capital city ranking,"Lisbon, Portugal",Lisbon,,Portugal,True,False,0.056983240223463696
+104.0,"Bern, Switzerland",7.2,IQAir 2024 World capital city ranking,"Bern, Switzerland",Bern,,Switzerland,True,False,0.05474860335195531
+105.0,"Copenhagen, Denmark",7.1,IQAir 2024 World capital city ranking,"Copenhagen, Denmark",Copenhagen,,Denmark,True,False,0.053631284916201116
+106.0,"Oslo, Norway",6.9,IQAir 2024 World capital city ranking,"Oslo, Norway",Oslo,,Norway,True,False,0.051396648044692746
+107.0,"Dublin, Ireland",6.6,IQAir 2024 World capital city ranking,"Dublin, Ireland",Dublin,,Ireland,True,False,0.048044692737430165
+108.0,"Vaduz, Liechtenstein",6.5,IQAir 2024 World capital city ranking,"Vaduz, Liechtenstein",Vaduz,,Liechtenstein,False,False,0.04692737430167598
+109.0,"Ottawa, Canada",6.0,IQAir 2024 World capital city ranking,"Ottawa, Canada",Ottawa,,Canada,True,False,0.04134078212290503
+110.0,"Port of Spain, Trinidad and Tobago",6.0,IQAir 2024 World capital city ranking,"Port of Spain, Trinidad and Tobago",Port of Spain,,Trinidad and Tobago,False,False,0.04134078212290503
+111.0,"Helsinki, Finland",5.5,IQAir 2024 World capital city ranking,"Helsinki, Finland",Helsinki,,Finland,True,False,0.03575418994413408
+112.0,"Stockholm, Sweden",5.3,IQAir 2024 World capital city ranking,"Stockholm, Sweden",Stockholm,,Sweden,True,False,0.0335195530726257
+113.0,"Brasilia, Brazil",5.2,IQAir 2024 World capital city ranking,"Brasilia, Brazil",Brasilia,,Brazil,True,False,0.03240223463687151
+114.0,"Tallinn, Estonia",4.3,IQAir 2024 World capital city ranking,"Tallinn, Estonia",Tallinn,,Estonia,True,False,0.0223463687150838
+115.0,"Wellington, New Zealand",4.3,IQAir 2024 World capital city ranking,"Wellington, New Zealand",Wellington,,New Zealand,True,False,0.0223463687150838
+116.0,"Canberra, Australia",3.9,IQAir 2024 World capital city ranking,"Canberra, Australia",Canberra,,Australia,False,False,0.01787709497206704
+117.0,"Reykjavik, Iceland",3.8,IQAir 2024 World capital city ranking,"Reykjavik, Iceland",Reykjavik,,Iceland,True,False,0.01675977653631285
+118.0,"Bridgetown, Barbados",3.1,IQAir 2024 World capital city ranking,"Bridgetown, Barbados",Bridgetown,,Barbados,False,False,0.008938547486033522
+119.0,"Papeete, French Polynesia",2.8,IQAir 2024 World capital city ranking,"Papeete, French Polynesia",Papeete,,French Polynesia,False,False,0.00558659217877095
+120.0,"San Juan, Puerto Rico",2.6,IQAir 2024 World capital city ranking,"San Juan, Puerto Rico",San Juan,,Puerto Rico,False,False,0.003351955307262573
+121.0,"Nassau, Bahamas",2.3,IQAir 2024 World capital city ranking,"Nassau, Bahamas",Nassau,,Bahamas,False,False,0.0
+,"San Francisco, CA, USA",4.2,"IQAir 2024 report, United States section (text)","San Francisco, CA, USA",San Francisco,CA,United States,True,False,0.021229050279329614
+,"Los Angeles, CA, USA",10.1,"IQAir 2024 report, United States section (text)","Los Angeles, CA, USA",Los Angeles,CA,United States,True,False,0.08715083798882681
+,"Phoenix, AZ, USA",7.4,"IQAir 2024 report, United States section (text)","Phoenix, AZ, USA",Phoenix,AZ,United States,True,False,0.056983240223463696
