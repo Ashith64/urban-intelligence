@@ -1,23 +1,23 @@
-Raw_Label,Congestion_Level_2025_pct,Change_vs_2024_pp,Avg_Speed_kmh,Rush_Hours_Lost_per_Year,Source,City,State,Country,Outlier_Flags_IQR,Congestion_Level_2025_pct_norm,Change_vs_2024_pp_norm,Avg_Speed_kmh_norm,Rush_Hours_Lost_per_Year_norm,In_Project_Scope
-"Mexico City, MX",75.9,-3.6,17.4,184.0,TomTom Traffic Index 2025,Mexico City,,Mexico,,1.0,0.03539823008849557,0.04054054054054047,0.9481481481481482,True
-"Bengaluru, IN",74.4,1.7,16.6,168.0,TomTom Traffic Index 2025,Bangalore,,India,,0.958217270194986,0.504424778761062,0.004504504504504568,0.8296296296296296,True
-"Dublin, IE",72.9,1.7,,191.0,TomTom Traffic Index 2025,Dublin,,Ireland,,0.9164345403899722,0.504424778761062,,1.0,True
-"Mumbai, IN",63.2,-3.3,20.8,126.0,TomTom Traffic Index 2025,Mumbai,,India,,0.6462395543175488,0.06194690265486727,0.1936936936936937,0.5185185185185185,True
-"Istanbul, TR",62.0,2.6,26.2,,TomTom Traffic Index 2025,Istanbul,,Turkey,,0.6128133704735375,0.5840707964601769,0.43693693693693686,,True
-"New Delhi, IN",60.2,3.5,,104.0,TomTom Traffic Index 2025,Delhi,,India,,0.5626740947075208,0.663716814159292,,0.35555555555555557,True
-"Jakarta, ID",59.8,1.1,22.8,,TomTom Traffic Index 2025,Jakarta,,Indonesia,,0.5515320334261837,0.4513274336283185,0.28378378378378377,,True
-"Los Angeles, CA, US",59.8,1.7,38.7,83.0,TomTom Traffic Index 2025,Los Angeles,CA,United States,,0.5515320334261837,0.504424778761062,1.0,0.2,True
-"Sao Paulo, BR",58.5,0.9,21.7,,TomTom Traffic Index 2025,Sao Paulo,,Brazil,,0.5153203342618383,0.4336283185840708,0.23423423423423417,,True
-"London, UK",51.6,1.0,16.5,,TomTom Traffic Index 2025,London,,United Kingdom,,0.3231197771587744,0.44247787610619466,0.0,,True
-"San Francisco, CA, US",49.7,2.2,,116.0,TomTom Traffic Index 2025,San Francisco,CA,United States,,0.2701949860724234,0.5486725663716814,,0.4444444444444444,True
-"New York, NY, US",48.8,0.0,19.0,125.0,TomTom Traffic Index 2025,New York,NY,United States,,0.24512534818941492,0.35398230088495575,0.1126126126126126,0.5111111111111111,True
-"Miami, FL, US",46.8,0.5,,72.0,TomTom Traffic Index 2025,Miami,FL,United States,,0.1894150417827297,0.3982300884955752,,0.11851851851851852,True
-"Chicago, IL, US",46.1,0.9,,79.0,TomTom Traffic Index 2025,Chicago,IL,United States,,0.16991643454039,0.4336283185840708,,0.17037037037037037,True
-"Amsterdam, NL",46.0,,,,TomTom Traffic Index 2025,Amsterdam,,Netherlands,,0.16713091922005568,,,,True
-"Seattle, WA, US",44.9,2.5,,69.0,TomTom Traffic Index 2025,Seattle,WA,United States,,0.13649025069637877,0.5752212389380531,,0.0962962962962963,True
-"Atlanta, GA, US",44.3,3.9,,61.0,TomTom Traffic Index 2025,Atlanta,GA,United States,,0.11977715877437316,0.6991150442477876,,0.037037037037037035,True
-"Tokyo, JP",44.1,7.3,21.8,,TomTom Traffic Index 2025,Tokyo,,Japan,,0.11420612813370476,1.0,0.23873873873873874,,True
-"Boston, MA, US",42.1,-2.9,,86.0,TomTom Traffic Index 2025,Boston,MA,United States,,0.05849582172701953,0.09734513274336283,,0.2222222222222222,True
-"Houston, TX, US",40.8,2.0,,56.0,TomTom Traffic Index 2025,Houston,TX,United States,,0.02228412256267401,0.5309734513274336,,0.0,True
-"Dallas, TX, US",40.6,1.1,,56.0,TomTom Traffic Index 2025,Dallas,TX,United States,,0.016713091922005607,0.4513274336283185,,0.0,True
-"Paris, FR",40.0,-4.0,20.0,,TomTom Traffic Index 2025,Paris,,France,,0.0,0.0,0.15765765765765763,,True
+City_As_Published,Congestion_Level_2025_pct,Change_vs_2024_pp,Avg_Speed_kmh,Rush_Hours_Lost_per_Year,Source,City_Raw,City,State,Country,In_Project_Scope,Outlier_Flags_IQR,Congestion_Level_2025_pct_norm
+"Mexico City, MX",75.9,-3.6,17.4,184.0,TomTom Traffic Index 2025,"Mexico City, MX",Mexico City,,Mexico,True,False,1.0
+"Bengaluru, IN",74.4,1.7,16.6,168.0,TomTom Traffic Index 2025,"Bengaluru, IN",Bangalore,,India,True,False,0.958217270194986
+"Dublin, IE",72.9,1.7,,191.0,TomTom Traffic Index 2025,"Dublin, IE",Dublin,,Ireland,True,False,0.9164345403899722
+"Mumbai, IN",63.2,-3.3,20.8,126.0,TomTom Traffic Index 2025,"Mumbai, IN",Mumbai,,India,True,False,0.6462395543175488
+"Istanbul, TR",62.0,2.6,26.2,,TomTom Traffic Index 2025,"Istanbul, TR",Istanbul,,Turkey,True,False,0.6128133704735375
+"New Delhi, IN",60.2,3.5,,104.0,TomTom Traffic Index 2025,"New Delhi, IN",Delhi,,India,True,False,0.5626740947075208
+"Jakarta, ID",59.8,1.1,22.8,,TomTom Traffic Index 2025,"Jakarta, ID",Jakarta,,Indonesia,True,False,0.5515320334261837
+"Los Angeles, CA, US",59.8,1.7,38.7,83.0,TomTom Traffic Index 2025,"Los Angeles, CA, US",Los Angeles,CA,United States,True,False,0.5515320334261837
+"Sao Paulo, BR",58.5,0.9,21.7,,TomTom Traffic Index 2025,"Sao Paulo, BR",Sao Paulo,,Brazil,True,False,0.5153203342618383
+"London, UK",51.6,1.0,16.5,,TomTom Traffic Index 2025,"London, UK",London,,United Kingdom,True,False,0.3231197771587744
+"San Francisco, CA, US",49.7,2.2,,116.0,TomTom Traffic Index 2025,"San Francisco, CA, US",San Francisco,CA,United States,True,False,0.2701949860724234
+"New York, NY, US",48.8,0.0,19.0,125.0,TomTom Traffic Index 2025,"New York, NY, US",New York,NY,United States,True,False,0.24512534818941492
+"Miami, FL, US",46.8,0.5,,72.0,TomTom Traffic Index 2025,"Miami, FL, US",Miami,FL,United States,True,False,0.1894150417827297
+"Chicago, IL, US",46.1,0.9,,79.0,TomTom Traffic Index 2025,"Chicago, IL, US",Chicago,IL,United States,True,False,0.16991643454039
+"Amsterdam, NL",46.0,,,,TomTom Traffic Index 2025,"Amsterdam, NL",Amsterdam,,Netherlands,True,False,0.16713091922005568
+"Seattle, WA, US",44.9,2.5,,69.0,TomTom Traffic Index 2025,"Seattle, WA, US",Seattle,WA,United States,True,False,0.13649025069637877
+"Atlanta, GA, US",44.3,3.9,,61.0,TomTom Traffic Index 2025,"Atlanta, GA, US",Atlanta,GA,United States,True,False,0.11977715877437316
+"Tokyo, JP",44.1,7.3,21.8,,TomTom Traffic Index 2025,"Tokyo, JP",Tokyo,,Japan,True,False,0.11420612813370476
+"Boston, MA, US",42.1,-2.9,,86.0,TomTom Traffic Index 2025,"Boston, MA, US",Boston,MA,United States,True,False,0.05849582172701953
+"Houston, TX, US",40.8,2.0,,56.0,TomTom Traffic Index 2025,"Houston, TX, US",Houston,TX,United States,True,False,0.02228412256267401
+"Dallas, TX, US",40.6,1.1,,56.0,TomTom Traffic Index 2025,"Dallas, TX, US",Dallas,TX,United States,True,False,0.016713091922005607
+"Paris, FR",40.0,-4.0,20.0,,TomTom Traffic Index 2025,"Paris, FR",Paris,,France,True,False,0.0
