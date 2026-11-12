@@ -3,16 +3,16 @@
 Status: IN PROGRESS
 
 ## Current milestone
-M1 - Data preprocessing pipeline & validation.
+M2 - Analytical engine, cached data loader, and chart components.
 
 ## Completed
 - [x] M0: Repository & dataset inspection, `.streamlit/config.toml`, `requirements.txt`, `requirements-dev.txt`.
+- [x] M1: `src/config.py`, `src/pipeline.py`, `data/processed/*.csv`, `tests/test_pipeline.py` (6/6 tests passing).
 
 ## In progress
-- [ ] M1: Build `src/config.py`, `src/pipeline.py`, generate `data/processed/`, verify with `tests/test_pipeline.py`.
+- [ ] M2: Build `src/data_loader.py`, `src/analysis.py`, `src/insights.py`, `src/charts.py`.
 
 ## Pending
-- [ ] M2: Analytical core (`src/data_loader.py`, `src/analysis.py`, `src/insights.py`, `src/charts.py`).
 - [ ] M3: Complete Streamlit dashboard (`app.py` + 9 multipage views).
 - [ ] M4: AppTest smoke tests, headless verification, and final launch.
 
@@ -24,7 +24,7 @@ M1 - Data preprocessing pipeline & validation.
 - No synthetic data, no imputation of missing traffic values.
 
 ## Last verified command
-`python -c "import streamlit, plotly, pandas, numpy, seaborn, matplotlib, pytest; print('ALL PACKAGES LOADED SUCCESSFULLY!')"` -> exited 0.
+`python -m pytest tests/test_pipeline.py -v` -> 6 passed in 0.87s.
 
 ## Next action
-Implement `src/config.py`, `src/pipeline.py`, and `tests/test_pipeline.py`.
+Implement `src/data_loader.py`, `src/analysis.py`, `src/insights.py`, and `src/charts.py`.

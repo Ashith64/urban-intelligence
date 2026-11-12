@@ -1,1 +1,1 @@
-# BISL504 Package
+"""BISL504 Urban Affordability & Liveability Intelligence Platform."""
