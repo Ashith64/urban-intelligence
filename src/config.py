@@ -82,6 +82,17 @@ REGION_COLORS = {
     "Oceania": "#999999",
 }
 
+REGION_DISPLAY_LABELS = {
+    "Asia": "East, SE & Central Asia",
+    "South Asia": "South Asia",
+    "Middle East": "Middle East",
+    "Europe": "Europe",
+    "North America": "North America",
+    "South America": "South America",
+    "Africa": "Africa",
+    "Oceania": "Oceania",
+}
+
 PM25_BAND_COLORS = {
     "Meets guideline": "#009E73",
     "Interim 4": "#56B4E9",

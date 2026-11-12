@@ -22,12 +22,34 @@ from src.config import (
 
 # Shared Plotly template styling
 PLOTLY_LAYOUT_DEFAULTS = dict(
-    font=dict(family="sans-serif", size=13, color="#1E293B"),
+    font=dict(family="sans-serif", size=12, color="#1E293B"),
     plot_bgcolor="#FFFFFF",
     paper_bgcolor="#FFFFFF",
-    margin=dict(l=40, r=40, t=50, b=40),
+    margin=dict(l=50, r=25, t=70, b=60),
     hoverlabel=dict(bgcolor="#1E293B", font_size=12, font_color="#FFFFFF"),
+    autosize=True,
 )
+
+
+def inject_responsive_css():
+    """Inject lightweight responsive CSS so multi-column KPIs stack cleanly on mobile."""
+    st.markdown(
+        """
+        <style>
+        @media (max-width: 768px) {
+            [data-testid="stHorizontalBlock"] {
+                flex-wrap: wrap !important;
+            }
+            [data-testid="stHorizontalBlock"] > [data-testid="column"],
+            [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {
+                min-width: 100% !important;
+                flex: 1 1 100% !important;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def render_kpi_card(title: str, value: str | int | float, subtext: str = "", help_text: str | None = None):
@@ -39,14 +61,16 @@ def render_kpi_card(title: str, value: str | int | float, subtext: str = "", hel
                 background: #F8FAFC;
                 border: 1px solid #E2E8F0;
                 border-radius: 8px;
-                padding: 16px 20px;
-                margin-bottom: 12px;
+                padding: 14px 16px;
+                margin-bottom: 10px;
                 box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+                overflow-wrap: break-word;
+                word-break: normal;
             ">
-                <div style="font-size: 0.85rem; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">
+                <div style="font-size: 0.78rem; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.04em;">
                     {title}
                 </div>
-                <div style="font-size: 1.85rem; font-weight: 700; color: #0072B2; margin: 4px 0;">
+                <div style="font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 700; color: #0072B2; margin: 4px 0; line-height: 1.2;">
                     {value}
                 </div>
                 <div style="font-size: 0.8rem; color: #475569;">
@@ -60,18 +84,17 @@ def render_kpi_card(title: str, value: str | int | float, subtext: str = "", hel
 
 def plot_global_map(
     df: pd.DataFrame,
-    color_metric: str = "Affordability_Air_Score_0_100",
-    color_label: str = "Affordability-Air Score (0-100)",
+    color_metric: str = "PM2_5_2024_ugm3",
+    color_label: str = "PM2.5 Concentration (µg/m³)",
 ) -> go.Figure:
     """Render an interactive scatter_geo world map without external API tokens."""
     hover_template = (
         "<b>%{customdata[0]}, %{customdata[1]}</b><br>"
         "Region: %{customdata[2]}<br>"
-        "Score: %{customdata[3]:.1f}<br>"
-        "Local Purchasing Power: %{customdata[4]:.1f}<br>"
-        "Cost of Living Index: %{customdata[5]:.1f}<br>"
-        "PM2.5 (2024): %{customdata[6]:.1f} µg/m³<br>"
-        "WHO Band: %{customdata[7]}<extra></extra>"
+        "Local Purchasing Power: %{customdata[3]:.1f}<br>"
+        "Cost of Living Index: %{customdata[4]:.1f}<br>"
+        "PM2.5 (2024): %{customdata[5]:.1f} µg/m³<br>"
+        "Air pollution category: %{customdata[6]}<extra></extra>"
     )
 
     customdata = df[
@@ -79,7 +102,6 @@ def plot_global_map(
             "City",
             "Country",
             "Region",
-            "Affordability_Air_Score_0_100",
             "Local_Purchasing_Power_Index",
             "Cost_of_Living_Index",
             "PM2_5_2024_ugm3",
@@ -88,7 +110,7 @@ def plot_global_map(
     ].values
 
     # Determine colorscale: reverse if higher is worse (like PM2.5)
-    reverse_color = "PM2_5" in color_metric or "Cost" in color_metric
+    reverse_color = "PM2_5" in color_metric or "Cost" in color_metric or "Rent" in color_metric
     colorscale = "Viridis_r" if reverse_color else "Viridis"
 
     fig = px.scatter_geo(
@@ -101,7 +123,7 @@ def plot_global_map(
         color_continuous_scale=colorscale,
         labels={color_metric: color_label, "Cost_of_Living_Index": "Cost of Living"},
         projection="natural earth",
-        title=f"Global City Distribution: {color_label} (Bubble Size = Cost of Living)",
+        title=f"Where are the cities located? ({color_label})",
     )
 
     fig.update_traces(
@@ -129,7 +151,7 @@ def plot_global_map(
 
 def plot_explore_scatter(
     df: pd.DataFrame,
-    log_y: bool = True,
+    log_y: bool = False,
     color_by: str = "Region",
 ) -> go.Figure:
     """Render scatter plot of Purchasing Power vs PM2.5 with WHO reference line."""
@@ -151,14 +173,15 @@ def plot_explore_scatter(
             "Local_Purchasing_Power_Index": ":.1f",
             "PM2_5_2024_ugm3": ":.1f",
             "Cost_of_Living_Index": ":.1f",
-            "Affordability_Air_Score_0_100": ":.1f",
+            "PM2_5_WHO_Band": True,
         },
         labels={
             "Local_Purchasing_Power_Index": "Local Purchasing Power Index (New York = 100)",
             "PM2_5_2024_ugm3": "PM2.5 Concentration (µg/m³)" + (" [Log Scale]" if log_y else ""),
-            "Cost_of_Living_Index": "Cost of Living",
+            "Cost_of_Living_Index": "Cost of Living (NY = 100)",
+            "PM2_5_WHO_Band": "Air pollution category",
         },
-        title="Purchasing Power vs PM2.5 Air Pollution (Bubble Size = Cost of Living)",
+        title="How does purchasing power compare with air pollution?",
     )
 
     # Add WHO Annual Air Quality Guideline reference line (5 µg/m³)
@@ -167,13 +190,24 @@ def plot_explore_scatter(
         line_dash="dash",
         line_color="#D55E00",
         line_width=2,
-        annotation_text="WHO Annual Guideline (5.0 µg/m³)",
-        annotation_position="bottom right",
+        annotation_text="WHO Guideline (5.0 µg/m³)",
+        annotation_position="top right",
+        annotation_yshift=8,
+        annotation_bgcolor="rgba(255,255,255,0.85)",
     )
 
+    fig.update_layout(**PLOTLY_LAYOUT_DEFAULTS)
     fig.update_layout(
-        **PLOTLY_LAYOUT_DEFAULTS,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.25, xanchor="center", x=0.5),
+        margin=dict(l=55, r=25, t=95, b=65),
+        title=dict(y=0.96, yanchor="top"),
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="left",
+            x=0,
+            title_text="",
+        ),
     )
     return fig
 
@@ -266,7 +300,7 @@ def plot_grouped_bar_comparison(df: pd.DataFrame, cities: list[str]) -> go.Figur
 
 
 def plot_rankings_bar(df: pd.DataFrame, score_col: str = "Affordability_Air_Score_0_100", top_n: int = 15) -> go.Figure:
-    """Render horizontal bar chart for Top-N ranked cities."""
+    """Render horizontal bar chart for Top-N ranked cities by illustrative score."""
     top_df = df.head(top_n).sort_values(by=score_col, ascending=True)
 
     fig = px.bar(
@@ -277,20 +311,64 @@ def plot_rankings_bar(df: pd.DataFrame, score_col: str = "Affordability_Air_Scor
         color="Region",
         color_discrete_map=REGION_COLORS,
         hover_data={"Country": True, score_col: ":.2f", "PM2_5_2024_ugm3": ":.1f"},
-        labels={score_col: "Score (0-100)", "City": "City"},
-        title=f"Top {top_n} Cities: Live Dynamic Ranking",
+        labels={score_col: "Illustrative combined score (0-100)", "City": "City"},
+        title=f"Top {top_n} cities by illustrative combined score",
     )
     fig.update_layout(
         **PLOTLY_LAYOUT_DEFAULTS,
-        xaxis_title="Affordability-Air Score (0-100)",
+        xaxis_title="Illustrative combined score (0-100)",
         yaxis_title="City",
     )
     return fig
 
 
-def plot_correlation_heatmap(corr_df: pd.DataFrame, title: str = "Correlation Heatmap") -> go.Figure:
+def plot_top_cities_bar(
+    df: pd.DataFrame,
+    metric: str,
+    metric_label: str,
+    top_n: int = 10,
+    ascending: bool = True,
+    title: str = "",
+) -> go.Figure:
+    """Render horizontal bar chart for top N cities on a single indicator."""
+    subset = df.sort_values(by=metric, ascending=ascending).head(top_n)
+    # Sort for horizontal bar display so the #1 city appears at the top
+    subset = subset.sort_values(by=metric, ascending=not ascending)
+
+    fig = px.bar(
+        subset,
+        x=metric,
+        y="City",
+        orientation="h",
+        color="Region",
+        color_discrete_map=REGION_COLORS,
+        hover_data={"Country": True, metric: ":.1f"},
+        labels={metric: metric_label, "City": "City"},
+        title=title or f"Top {top_n} cities: {metric_label}",
+    )
+    fig.update_layout(**PLOTLY_LAYOUT_DEFAULTS)
+    fig.update_layout(
+        margin=dict(l=10, r=25, t=75, b=95),
+        xaxis_title=metric_label,
+        yaxis_title="",
+        yaxis=dict(automargin=True),
+        legend=dict(orientation="h", yanchor="top", y=-0.22, xanchor="center", x=0.5, title_text=""),
+    )
+    return fig
+
+
+def plot_correlation_heatmap(corr_df: pd.DataFrame, title: str = "Correlation Matrix") -> go.Figure:
     """Render interactive correlation matrix heatmap."""
-    labels = [c.replace("_", " ") for c in corr_df.columns]
+    friendly_names = {
+        "Cost_of_Living_Index": "Cost of Living",
+        "Rent_Index": "Rent Index",
+        "Cost_of_Living_Plus_Rent_Index": "Cost of Living + Rent",
+        "Groceries_Index": "Groceries",
+        "Restaurant_Price_Index": "Restaurant Prices",
+        "Local_Purchasing_Power_Index": "Purchasing Power",
+        "PM2_5_2024_ugm3": "PM2.5 (µg/m³)",
+    }
+    labels = [friendly_names.get(c, c.replace("_", " ")) for c in corr_df.columns]
 
     fig = go.Figure(
         data=go.Heatmap(
@@ -306,15 +384,20 @@ def plot_correlation_heatmap(corr_df: pd.DataFrame, title: str = "Correlation He
             hoverongaps=False,
         )
     )
+    fig.update_layout(**PLOTLY_LAYOUT_DEFAULTS)
     fig.update_layout(
         title=title,
-        **PLOTLY_LAYOUT_DEFAULTS,
+        height=500,
+        margin=dict(l=130, r=30, t=65, b=100),
+        xaxis=dict(automargin=True, tickangle=-25),
+        yaxis=dict(automargin=True),
     )
     return fig
 
 
 def plot_regional_boxplots(df: pd.DataFrame, metric: str, metric_label: str) -> go.Figure:
     """Render regional box plots showing distributions."""
+    short_label = metric_label.split(" (")[0]
     fig = px.box(
         df,
         x="Region",
@@ -324,33 +407,51 @@ def plot_regional_boxplots(df: pd.DataFrame, metric: str, metric_label: str) -> 
         points="all",
         hover_name="City",
         labels={metric: metric_label, "Region": "Region"},
-        title=f"Regional Distribution: {metric_label}",
+        title=f"{short_label} by region",
     )
+    fig.update_layout(**PLOTLY_LAYOUT_DEFAULTS)
     fig.update_layout(
-        **PLOTLY_LAYOUT_DEFAULTS,
+        margin=dict(l=55, r=20, t=65, b=70),
+        xaxis=dict(automargin=True, tickangle=-20),
         showlegend=False,
     )
     return fig
 
 
 def plot_metric_histogram(df: pd.DataFrame, metric: str, metric_label: str, nbins: int = 20) -> go.Figure:
-    """Render interactive distribution histogram with mean line."""
+    """Render interactive distribution histogram with mean and median lines."""
+    short_label = metric_label.split(" (")[0]
     fig = px.histogram(
         df,
         x=metric,
         nbins=nbins,
         color_discrete_sequence=["#0072B2"],
         labels={metric: metric_label},
-        title=f"Distribution of {metric_label}",
+        title=f"Distribution of {short_label}",
     )
     mean_val = df[metric].mean()
     median_val = df[metric].median()
 
-    fig.add_vline(x=mean_val, line_dash="dash", line_color="#D55E00", annotation_text=f"Mean: {mean_val:.1f}")
-    fig.add_vline(x=median_val, line_dash="dot", line_color="#009E73", annotation_text=f"Median: {median_val:.1f}")
+    fig.add_vline(
+        x=mean_val,
+        line_dash="dash",
+        line_color="#D55E00",
+        annotation_text=f"Mean: {mean_val:.1f}",
+        annotation_position="top right",
+        annotation_yshift=4,
+    )
+    fig.add_vline(
+        x=median_val,
+        line_dash="dot",
+        line_color="#009E73",
+        annotation_text=f"Median: {median_val:.1f}",
+        annotation_position="top left",
+        annotation_yshift=-16,
+    )
 
+    fig.update_layout(**PLOTLY_LAYOUT_DEFAULTS)
     fig.update_layout(
-        **PLOTLY_LAYOUT_DEFAULTS,
+        margin=dict(l=50, r=20, t=65, b=55),
         yaxis_title="City Count",
     )
     return fig

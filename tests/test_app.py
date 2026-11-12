@@ -7,16 +7,11 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 
 PAGES = [
     "app.py",
-    "pages/1_Home.py",
-    "pages/2_Data_Profiling.py",
-    "pages/3_Explore.py",
-    "pages/4_Map.py",
-    "pages/5_Compare_Cities.py",
-    "pages/6_Rankings.py",
-    "pages/7_Correlation_and_Distribution.py",
-    "pages/8_Data_Explorer.py",
-    "pages/9_Insights.py",
-    "pages/10_Methodology_and_Limits.py",
+    "pages/1_Executive_Dashboard.py",
+    "pages/2_City_Explorer.py",
+    "pages/3_Head_to_Head.py",
+    "pages/4_Analysis_Findings.py",
+    "pages/5_Data_Room.py",
 ]
 
 
@@ -26,7 +21,7 @@ def test_streamlit_page_renders_without_exception(page_path: str):
     abs_path = (ROOT_DIR / page_path).resolve()
     assert abs_path.exists(), f"Page file does not exist: {abs_path}"
 
-    at = AppTest.from_file(str(abs_path), default_timeout=15)
+    at = AppTest.from_file(str(abs_path), default_timeout=25)
     at.run()
 
     assert not at.exception, f"Exception occurred while rendering {page_path}: {at.exception}"

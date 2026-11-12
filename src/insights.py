@@ -63,7 +63,6 @@ def generate_automated_insights(df: pd.DataFrame) -> dict:
         "Restaurant_Price_Index",
         "Local_Purchasing_Power_Index",
         "PM2_5_2024_ugm3",
-        "Relative_Net_Income_Index",
     ]
     corr = df[numeric_cols].corr(method="pearson")
 

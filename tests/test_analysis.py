@@ -2,91 +2,91 @@
 import pandas as pd
 import pytest
 
-from src.data_loader import get_final_merged_data
+from src.data_loader import get_master_data
 from src.analysis import (
-    recalculate_affordability_score,
-    compute_correlation_matrix,
-    filter_dataset,
-    get_regional_summary,
-    get_city_comparison_table,
+    calculate_master_kpis,
+    calculate_univariate_stats,
+    generate_discovery_feed,
+    calculate_preset_ranking,
+    compute_bivariate_analysis,
+    compute_correlation_matrix_filtered,
 )
-from src.insights import calculate_home_kpis, generate_automated_insights
-from src.charts import render_static_seaborn_pairplot
 
 
 @pytest.fixture(scope="session")
-def merged_df():
-    """Load final merged dataset."""
-    return get_final_merged_data()
+def master_df():
+    """Load master dataset."""
+    return get_master_data()
 
 
-def test_recalculate_affordability_score(merged_df):
-    """Test what-if score calculation with dynamic weights."""
-    # Test equal weights
-    res = recalculate_affordability_score(merged_df, w_lpp=0.5, w_clean_air=0.5)
-    assert len(res) == len(merged_df)
-    assert "Custom_Score" in res.columns
-    assert "Custom_Rank" in res.columns
-    assert (res["Custom_Score"] >= 0.0).all()
-    assert (res["Custom_Score"] <= 100.0).all()
-    assert res["Custom_Rank"].min() == 1
-
-    # Zero weights should default to 50/50 without division error
-    zero_w = recalculate_affordability_score(merged_df, w_lpp=0.0, w_clean_air=0.0)
-    assert len(zero_w) == len(merged_df)
-    assert not zero_w["Custom_Score"].isna().any()
+def test_calculate_master_kpis(master_df):
+    """Test executive KPI calculations."""
+    kpis = calculate_master_kpis(master_df)
+    assert kpis["total_cities"] == 238
+    assert kpis["total_countries"] >= 70
+    assert kpis["median_power"] > 0
+    assert kpis["median_cost"] > 0
+    assert 0 <= kpis["pristine_air_pct"] <= 100
+    assert "cleanest_city" in kpis
+    assert "highest_power_city" in kpis
+    assert "lowest_cost_city" in kpis
+    assert "safest_city" in kpis
+    assert "best_health_city" in kpis
 
 
-def test_compute_correlation_matrix(merged_df):
-    """Test correlation matrix calculation for Pearson and Spearman methods."""
-    for method in ["pearson", "spearman"]:
-        corr = compute_correlation_matrix(merged_df, method=method)
-        assert corr.shape[0] == corr.shape[1]
-        assert (corr.values <= 1.001).all()
-        assert (corr.values >= -1.001).all()
-        # Diagonal should be 1.0
-        for i in range(len(corr)):
-            assert corr.iloc[i, i] == 1.0
+def test_calculate_univariate_stats(master_df):
+    """Test 12 summary statistics computation."""
+    res = calculate_univariate_stats(master_df["Purchasing_Power_Index"])
+    assert res["Observations"] == 238
+    assert res["Missing %"] == "0.0%"
+    assert res["Mean"] > 0
+    assert res["Median"] > 0
+    assert res["Minimum"] <= res["Maximum"]
+    assert res["Range"] == pytest.approx(res["Maximum"] - res["Minimum"], 0.01)
+    assert res["IQR"] > 0
 
 
-def test_filter_dataset(merged_df):
-    """Test multi-criteria filtering."""
-    # Filter by region
-    eur = filter_dataset(merged_df, regions=["Europe"])
-    assert (eur["Region"] == "Europe").all()
-    assert len(eur) > 0
-
-    # Filter by LPP range
-    lpp_filtered = filter_dataset(merged_df, lpp_min=50.0, lpp_max=100.0)
-    assert (lpp_filtered["Local_Purchasing_Power_Index"] >= 50.0).all()
-    assert (lpp_filtered["Local_Purchasing_Power_Index"] <= 100.0).all()
-
-    # Search filter
-    search_res = filter_dataset(merged_df, search_query="Tokyo")
-    assert len(search_res) == 1
-    assert search_res.iloc[0]["City"] == "Tokyo"
+def test_generate_discovery_feed(master_df):
+    """Test automated discovery feed generation."""
+    feed = generate_discovery_feed(master_df)
+    assert len(feed) >= 5
+    for item in feed:
+        assert "title" in item
+        assert "metric_value" in item
+        assert "badge" in item
+        assert "explanation" in item
+        assert item["sample_size"] == 238
+        assert "source" in item
 
 
-def test_insights_generation(merged_df):
-    """Test automated insight generation without errors and verify dynamic values."""
-    kpis = calculate_home_kpis(merged_df)
-    assert kpis["total_cities"] == 72
-    assert kpis["total_countries"] > 30
-    assert kpis["median_lpp"] > 0
-    assert kpis["median_pm25"] > 0
-    assert 0 <= kpis["share_above_who_pct"] <= 100
-
-    insights = generate_automated_insights(merged_df)
-    assert "top_score_city" in insights
-    assert "cleanest_city" in insights
-    assert "most_polluted_city" in insights
-    assert insights["traffic_coverage"] == 10
-    assert insights["meets_who_count"] >= 0
+def test_calculate_preset_ranking(master_df):
+    """Test what-if preset and custom rankings."""
+    for preset in ["Affordability First", "Environment First", "Balanced Priorities"]:
+        ranked = calculate_preset_ranking(master_df, preset=preset)
+        assert len(ranked) == 238
+        assert "Custom_Score" in ranked.columns
+        assert "Custom_Rank" in ranked.columns
+        assert (ranked["Custom_Score"] >= 0.0).all()
+        assert (ranked["Custom_Score"] <= 100.0).all()
+        assert ranked["Custom_Rank"].min() == 1
+        assert ranked["Custom_Rank"].max() <= 238
 
 
-def test_static_chart_rendering(merged_df):
-    """Verify that static Seaborn/Matplotlib chart renders without throwing errors."""
-    fig = render_static_seaborn_pairplot(merged_df)
-    assert fig is not None
-    import matplotlib.pyplot as plt
-    plt.close(fig)
+def test_compute_bivariate_analysis(master_df):
+    """Test bivariate statistical analysis."""
+    res = compute_bivariate_analysis(master_df, "Purchasing_Power_Index", "Cost_of_Living_Index")
+    assert res["n"] == 238
+    assert -1.0 <= res["r"] <= 1.0
+    assert -1.0 <= res["rho"] <= 1.0
+    assert "interpretation" in res
+    assert "causal mechanism" in res["interpretation"]
+
+
+def test_compute_correlation_matrix_filtered(master_df):
+    """Test filtered correlation matrix."""
+    corr = compute_correlation_matrix_filtered(master_df)
+    assert corr.shape[0] == corr.shape[1]
+    assert (corr.values <= 1.001).all()
+    assert (corr.values >= -1.001).all()
+    for i in range(len(corr)):
+        assert pytest.approx(corr.iloc[i, i], 0.001) == 1.0
