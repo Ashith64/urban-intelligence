@@ -1,66 +1,140 @@
-# Urban Affordability & Liveability Intelligence Platform (BISL504)
+# URBAN INTELLIGENCE: The Global Liveability Observatory
 
-An interactive, production-ready analytics platform exploring the intersection between financial purchasing power, cost of living, fine particulate matter ($\text{PM}_{2.5}$) air quality, and urban traffic congestion across 72 benchmark global cities.
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=Ashith64/urban-intelligence&branch=main&mainModule=app.py)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Ashith64%2Furban--intelligence-181717?logo=github)](https://github.com/Ashith64/urban-intelligence)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-55B89A.svg)](LICENSE)
+[![Tests Passing](https://img.shields.io/badge/tests-18%20passed-55B89A.svg)](tests/)
 
-Built with **Python**, **Streamlit**, **Plotly**, **Pandas**, **NumPy**, **Matplotlib**, **Seaborn**, and **Pytest**.
+> **"Where can people enjoy a better balance of affordability, purchasing power, quality of life, and environmental conditions?"**
 
----
-
-## 🎯 Project Overview & Core Question
-> *"Which world cities are both affordable and breathable, and how do cost, purchasing power, air quality, and traffic relate?"*
-
-This intelligence platform synthesizes four real-world datasets into an interactive multi-page dashboard. All calculations, rankings, correlations, and insights are computed dynamically from real snapshot data—no synthetic or fabricated values are ever used.
-
----
-
-## 🧭 Dashboard Architecture (10 Pages)
-
-1. **🏠 Executive Overview (`1_Home.py`)**: High-level KPI summary cards, validated data source badges, and user navigation guide.
-2. **📊 Dataset Profiling (`2_Data_Profiling.py`)**: Data schema inspection, missingness analysis, Tukey's 1.5×IQR outlier detection audit, and label parsing verification.
-3. **🔍 City Exploration (`3_Explore.py`)**: Multi-filter scatter plot (Purchasing Power vs. $\text{PM}_{2.5}$ log scale) with WHO annual guideline threshold and an interactive linked city detail drill-down panel.
-4. **🗺️ Global Map (`4_Map.py`)**: Interactive Plotly `scatter_geo` projection with dynamic metric color encoding and Cost of Living bubble dimensioning (no external API keys required).
-5. **⚖️ City Comparison (`5_Compare_Cities.py`)**: Multi-city selector (2–5 cities), radar chart of normalized dimensions, grouped bar charts, and a side-by-side indicator matrix.
-6. **🏆 Dynamic Rankings (`6_Rankings.py`)**: What-if simulation sliders for economic purchasing power ($w_1$) vs. clean air ($w_2$) with auto-normalization, live Top-N bar charts, and CSV data export.
-7. **📈 Correlation & Distribution (`7_Correlation_and_Distribution.py`)**: Parametric Pearson and non-parametric Spearman correlation heatmaps, regional box plots, frequency histograms, and a static dual-panel Seaborn density plot.
-8. **📁 Data Explorer (`8_Data_Explorer.py`)**: Interactive searchable tabular data viewer for raw and processed datasets, dynamic column picker, and CSV downloads.
-9. **💡 Automated Insights (`9_Insights.py`)**: Dynamically generated analytical takeaways, including top balanced performers, extreme cities, regional medians, and WHO air quality guideline compliance.
-10. **📋 Methodology & Limits (`10_Methodology_and_Limits.py`)**: Transparent documentation of data provenance, normalization equations, composite score formulation, and explicit analytical limitations (cross-sectional snapshot, capital bias, and sparse traffic coverage).
+A high-performance exploratory urban data intelligence platform analyzing **238 global cities** across **83 countries and territories**, synthesizing multi-source city observations (purchasing power, cost of living, property price-to-income, safety, healthcare, climate, pollution, and traffic commute times) with official **World Bank 2023 macroeconomic indicators** (GDP per capita, life expectancy, urban population share).
 
 ---
 
-## 🚀 Quickstart & Installation
+## 🌐 Live Application Deployment
+
+Deploy or run this application instantly on **Streamlit Community Cloud**:
+
+👉 **[Deploy 1-Click to Streamlit Cloud](https://share.streamlit.io/deploy?repository=Ashith64/urban-intelligence&branch=main&mainModule=app.py)**
+
+Or visit your personal Streamlit Community Cloud workspace at [share.streamlit.io](https://share.streamlit.io/) and point to:
+- **Repository**: `Ashith64/urban-intelligence`
+- **Branch**: `main`
+- **Main file path**: `app.py`
+
+---
+
+## 🎨 Design System: Obsidian Luxe
+
+The platform features a custom-engineered **Obsidian Luxe** visual hierarchy inspired by institutional terminals and Bloomberg/Power BI interfaces:
+
+| Token | Hex | Role |
+| :--- | :--- | :--- |
+| **Main Background** | `#0B0E12` | Deep canvas obsidian |
+| **Sidebar Canvas** | `#10151B` | Structural dark navigation surface |
+| **Primary Surfaces** | `#141A21` | Metric cards and analytical panels |
+| **Elevated Surfaces** | `#1B232C` | Modals, active states, and hovered cards |
+| **Borders** | `#28323D` | Crisp, low-contrast component dividers |
+| **Primary Text** | `#F0F1ED` | High-contrast editorial typography (Inter) |
+| **Secondary Text** | `#929DA8` | Analytical captions and metadata |
+| **Emerald Accent** | `#55B89A` | Favourable environmental & quality outcomes |
+| **Champagne Gold** | `#C6A46A` | Benchmarks, global medians, and highlights |
+| **Muted Coral** | `#D97870` | Adverse conditions (pollution, high cost) |
+
+---
+
+## 🧭 Five Destination Architecture
+
+```mermaid
+graph TD
+    App[app.py Shell] --> D1[1. Executive Dashboard]
+    App --> D2[2. City Explorer]
+    App --> D3[3. Head-to-Head]
+    App --> D4[4. Analysis & Findings]
+    App --> D5[5. Data Room]
+    
+    D1 --> K[4 Core KPI Cards + Hero Quadrant + 3 Dynamic Findings]
+    D2 --> S[Dual-View Studio: Scatter + Natural Earth Map + City Passport]
+    D3 --> C[2-4 Contender Cards + Radar Profile + Lifestyle What-If Simulator]
+    D4 --> M[7 Analytical Modules: Discovery Feed, OLS Regressions, Heatmaps]
+    D5 --> A[Lineage Specs + 238-City Searchable Explorer + 11-Rule Audit Table]
+```
+
+### 1. 🏛️ Executive Dashboard (`1_Executive_Dashboard.py`)
+- **10-Second Executive Overview**: Instant global situational awareness.
+- **Dynamic KPI Row**: Cities Analysed (238), Countries Represented (83), Median Purchasing Power (51.2), Median Quality of Life (140.2).
+- **Hero Liveability Quadrant**: Interactive scatter plot of Quality of Life vs. Cost of Living Index with quadrant crosshairs at median coordinates (140.2, 45.4).
+- **Automated Insights Row**: Dynamic callout cards highlighting the Highest Balance City, Value Champion, and Environmental Pioneer.
+- **Regional Landscape Chart**: Mean performance by geographic continent.
+
+### 2. 🔍 City Explorer (`2_City_Explorer.py`)
+- **Dual-View Exploration**: Switch seamlessly between **Scatter Relationship Studio** and **Natural Earth Geospatial Map**.
+- **Multi-Criteria Contextual Filters**: Real-time filtering by Region, Cost Index range, Quality of Life range, and PM2.5 threshold.
+- **Dynamic OLS Trendlines**: Real-time slope, intercept, and $R^2$ calculation without external dependencies.
+- **City Passport Drawer**: Deep-dive profile for any selected city including all 11 core dimensions and radar balance preview.
+
+### 3. ⚔️ Head-to-Head (`3_Head_to_Head.py`)
+- **Contender Comparison**: Compare 2 to 4 global cities side-by-side.
+- **Key Metrics Matrix**: Visual grouped bar charts across economic, environmental, and infrastructure pillars.
+- **6-Axis Spider / Radar Profile**: Visualizing holistic trade-offs across Purchasing Power, Quality of Life, Safety, Health Care, Low Cost, and Clean Air.
+- **Benchmark Variance Matrix**: Calculates exact percentage deltas against the global median.
+- **Interactive What-If Simulator**: Weight preferences across 3 lifestyle presets (*Balanced Living*, *Cost-First Expat*, *Green & Healthy*) or custom weights.
+
+### 4. 📈 Analysis & Findings (`4_Analysis_Findings.py`)
+- **Automated Discovery Feed**: 8 algorithmic discoveries dynamically generated from the live dataset.
+- **Statistical Overview**: Summary statistics (Mean, Median, Std, IQR, Min, Max) for all 12 indicators.
+- **Relationship Explorer**: Interactive bivariate scatter plots with dynamic OLS regression parameters.
+- **Correlation Studio**: Filterable correlation matrix and pairwise ranking.
+- **Distribution Lab**: Interactive histograms with adjustable bin counts.
+- **Regional Intelligence**: Distribution box plots comparing regional variance.
+- **Custom Visualization Studio**: Build custom charts and download raw CSV data or standalone interactive HTML figures.
+
+### 5. 🗄️ Data Room (`5_Data_Room.py`)
+- **Provenance & Lineage Specifications**: Transparent documentation of all source datasets, collection timeframes, and observation counts.
+- **Interactive Data Explorer**: Searchable, filterable 238-city master table with direct CSV export.
+- **Automated Data Quality Audit**: 11-point validation check covering range compliance, schema types, and outlier detection.
+- **Outlier Treatment Policy**: Transparent documentation of Tukey's $1.5 \times \text{IQR}$ fences.
+- **Normalization Mathematical Formulas**: Rendered KaTeX equations for min-max normalization and directional inversion.
+
+---
+
+## 📊 Dataset Provenance & Harmonization
+
+| Indicator | Source | Scope | Refresh Cadence |
+| :--- | :--- | :--- | :--- |
+| **Quality of Life, Purchasing Power, Cost of Living** | Numbeo Global Living Index | 238 Cities | Annual Snapshot |
+| **PM2.5 Air Quality & Environmental Quality** | IQAir World Air Quality Report | 238 Cities | Annual Mean ($\mu\text{g/m}^3$) |
+| **Traffic Commute & Travel Time** | TomTom Traffic Index / Numbeo | 238 Cities | One-Way Commute (min) |
+| **GDP per Capita, Life Expectancy, Urban Share** | World Bank Open Data API (2023) | 83 Countries | Official Annual Macro Data |
+
+---
+
+## 🛠️ Quickstart & Local Execution
 
 ### 1. Prerequisites
-- Python 3.10+ (tested on Python 3.12 and Python 3.14)
+- Python 3.10+ (tested on Python 3.10, 3.11, 3.12, 3.14)
 - Git
 
 ### 2. Clone and Setup Environment
 ```bash
-# Clone the repository
-git clone <repo-url>
-cd bisl504-dashboard
+git clone https://github.com/Ashith64/urban-intelligence.git
+cd urban-intelligence
 
-# Create and activate virtual environment
+# Create virtual environment
 python -m venv .venv
 
+# Activate virtual environment
 # Windows PowerShell:
 .\.venv\Scripts\Activate.ps1
-
 # Linux / macOS:
 source .venv/bin/activate
 
-# Install dependencies
+# Install runtime dependencies
 pip install -r requirements.txt
-pip install -r requirements-dev.txt
 ```
 
-### 3. Run Preprocessing Pipeline
-```bash
-python -m src.pipeline
-```
-This processes `data/raw/` into `data/processed/{cost_of_living,air_quality,traffic}_processed.csv` and generates the harmonized `data/processed/final_merged.csv`.
-
-### 4. Launch Streamlit Application
+### 3. Launch Streamlit Application
 ```bash
 streamlit run app.py
 ```
@@ -70,74 +144,21 @@ Open your browser to `http://localhost:8501`.
 
 ## 🧪 Automated Testing
 
-Execute the test suite verifying data validation counts, derived index equations, and full page rendering:
+Verify the analytical calculations, normalization pipelines, and page rendering:
 
 ```bash
 pytest tests/ -v
 ```
 
-The test suite covers:
-- **`tests/test_pipeline.py`**: Asserts exact raw-to-scope counts (Numbeo 536 $\rightarrow$ 161, IQAir 124 $\rightarrow$ 72, TomTom 22 $\rightarrow$ 22, Final = 72 cities, 10 traffic rows), IQR outlier flags (19/9/0), normalization bounds $[0, 1]$, and zero nulls.
-- **`tests/test_analysis.py`**: Validates dynamic what-if scoring, Pearson/Spearman correlation matrices, filtering logic, and Seaborn static rendering.
-- **`tests/test_app.py`**: Uses `streamlit.testing.v1.AppTest` to verify that `app.py` and all 10 pages render without exceptions.
-
----
-
-## 📁 Repository Structure
-
 ```
-bisl504-dashboard/
-├── .streamlit/
-│   └── config.toml                  # Streamlit visual theme (Okabe-Ito friendly, dark/light safe)
-├── data/
-│   ├── raw/                         # 4 immutable raw datasets
-│   │   ├── cities_reference.csv     # 161 benchmark global cities scope
-│   │   ├── iqair_raw.csv            # 124 air quality observations
-│   │   ├── numbeo_raw.csv           # 536 cost of living records
-│   │   └── tomtom_raw.csv           # 22 traffic congestion records
-│   └── processed/                   # Harmonized and normalized datasets
-│       ├── cost_of_living_processed.csv
-│       ├── air_quality_processed.csv
-│       ├── traffic_processed.csv
-│       └── final_merged.csv         # 72 cities unified dataset
-├── docs/
-│   └── SPEC.md                      # Technical specifications & validation benchmarks
-├── pages/
-│   ├── 1_Home.py                    # Page 1: Executive Overview
-│   ├── 2_Data_Profiling.py          # Page 2: Profiling, Missingness & Outliers
-│   ├── 3_Explore.py                 # Page 3: Interactive City Exploration
-│   ├── 4_Map.py                     # Page 4: Global Geospatial Map
-│   ├── 5_Compare_Cities.py          # Page 5: Multi-City Radar & Bar Comparisons
-│   ├── 6_Rankings.py                # Page 6: Dynamic What-If Rankings
-│   ├── 7_Correlation_and_Distribution.py # Page 7: Heatmaps, Distributions & Static KDE
-│   ├── 8_Data_Explorer.py           # Page 8: Tabular Explorer & CSV Downloads
-│   ├── 9_Insights.py                # Page 9: Automated Statistical Insights
-│   └── 10_Methodology_and_Limits.py # Page 10: Methodology & Documented Limits
-├── src/
-│   ├── __init__.py
-│   ├── config.py                    # Paths, aliases, color palettes, constants
-│   ├── pipeline.py                  # Cleaning, outlier flagging, normalization, merge
-│   ├── data_loader.py               # Cached data loading (@st.cache_data)
-│   ├── analysis.py                  # Metrics calculation, correlation, filtering
-│   ├── charts.py                    # Reusable Plotly & Matplotlib/Seaborn charting
-│   └── insights.py                  # Dynamic insight computations
-├── tests/
-│   ├── test_pipeline.py             # SPEC Section 4 validation test suite
-│   ├── test_analysis.py             # Analytical computation tests
-│   └── test_app.py                  # AppTest smoke tests across all 10 pages
-├── app.py                           # App entry point with st.navigation
-├── requirements.txt                 # Runtime dependencies
-├── requirements-dev.txt             # Development & test dependencies
-├── PROGRESS.md                      # Milestone tracking log
-└── README.md                        # Documentation & setup guide
+tests/test_analysis.py ......                                            [ 33%]
+tests/test_app.py ......                                                 [ 66%]
+tests/test_pipeline.py ......                                            [100%]
+
+============================= 18 passed in 7.21s ==============================
 ```
 
 ---
 
-## ☁️ Streamlit Community Cloud Deployment
-
-1. Fork or push this repository to GitHub.
-2. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/).
-3. Click **New app**, select the repository and branch (`master` or `main`).
-4. Set **Main file path** to `app.py`.
-5. Deploy. Streamlit automatically installs from `requirements.txt` and starts the application.
+## 📄 License
+This project is open-source under the MIT License. See [LICENSE](LICENSE) for details.
